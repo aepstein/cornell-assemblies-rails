@@ -1,0 +1,6 @@
+= CornellAssembliesRails
+
+This project is the sole property of Cornell University and may be used only with permission of the owner.  It contains the Cornell name and brand, which should be used only as authorized by appropriate Cornell personnel.
+
+It provides Rails 3.1 compliant assets to create websites with the Office of the Assemblies look and feel.
+
