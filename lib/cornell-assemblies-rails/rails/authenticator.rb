@@ -1,6 +1,6 @@
 module CornellAssembliesRails
   module Rails
-    module ActionController
+    module Authenticator
       module ClassMethods
 
         def is_authenticator
