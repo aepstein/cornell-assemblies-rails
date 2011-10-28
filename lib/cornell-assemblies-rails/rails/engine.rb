@@ -4,9 +4,7 @@ module CornellAssembliesRails
 
     class Engine < ::Rails::Engine
       initializer "cornell-assemblies-rails.authenticator" do
-        ActiveSupport.on_load(:action_controller) do
-          include Authenticator
-        end
+        ::ActionController::Base.include ActionController
       end
     end
 
