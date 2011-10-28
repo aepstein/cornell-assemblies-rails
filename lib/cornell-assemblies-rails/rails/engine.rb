@@ -6,6 +6,8 @@ module CornellAssembliesRails
       initializer "cornell-assemblies-rails.authenticator" do
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
+        ::ActiveRecord::Base.send :include, Notifiable
+        ::ActiveRecord::Base.send :include, Authenticable
       end
     end
 
