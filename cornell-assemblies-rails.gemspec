@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.1.1"
   s.add_dependency "jquery-rails", "~> 1.0.15"
-  s.add_dependnecy "bcrypt-ruby", "~> 3.0.1"
+  s.add_dependency "bcrypt-ruby", "~> 3.0.1"
   s.add_dependency "rails3-jquery-autocomplete", "~> 1.0.4"
 
   s.add_development_dependency "sqlite3"
