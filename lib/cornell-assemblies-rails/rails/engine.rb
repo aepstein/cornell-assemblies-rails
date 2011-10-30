@@ -8,6 +8,7 @@ module CornellAssembliesRails
         ::ActionController::Base.send :include, Breadcrumbs
         ::ActiveRecord::Base.send :include, Notifiable
         ::ActiveRecord::Base.send :include, Authenticable
+        ::ActiveRecord::Base.send :include, Searchable
       end
     end
 
