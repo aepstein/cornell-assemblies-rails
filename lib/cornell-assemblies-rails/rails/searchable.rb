@@ -2,7 +2,7 @@ module CornellAssembliesRails
   module Rails
     module Searchable
       module ClassMethods
-        def search_methods( methods* )
+        def search_methods( *methods )
           instance_eval do
             def ransack_with_searchable( params={}, options={} )
               search_methods.each do |method|
