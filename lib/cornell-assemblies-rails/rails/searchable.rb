@@ -6,6 +6,7 @@ module CornellAssembliesRails
           unless method_defined? :_search_methods
             instance_eval do
               def search( params={}, options={} )
+                return ransack( params, options ) if params.blank? || params.empty?
                 s = _search_methods.inject( scoped ) do |scope, method|
                   param = params.delete( method ) || params.delete( method.to_s )
                   if param
