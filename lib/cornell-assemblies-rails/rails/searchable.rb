@@ -3,16 +3,18 @@ module CornellAssembliesRails
     module Searchable
       module ClassMethods
         def search_methods( *methods )
-          unless defined? _search_methods
+          unless method_defined? :_search_methods
             instance_eval do
               def ransack_with_searchable( params={}, options={} )
-                search_methods.each do |method|
+                s = _search_methods.inject( scoped ) do |scope, method|
                   param = params.delete( method ) || params.delete( method.to_s )
                   if param
-                    send method, param
+                    scope.send method, param
+                  else
+                    scope
                   end
                 end
-                ransack_without_searchable( params, options )
+                s.ransack_without_searchable( params, options )
               end
             end
             cattr_accessor :_search_methods
