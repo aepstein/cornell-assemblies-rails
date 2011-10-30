@@ -3,6 +3,7 @@ module CornellAssembliesRails
   module Rails
 
     class Engine < ::Rails::Engine
+      config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
       initializer "cornell-assemblies-rails.authenticator" do
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
