@@ -36,6 +36,7 @@ module CornellAssembliesRails
               session[:user_id] = nil
             end
             return @current_user unless @current_user.blank?
+            initialize_user( sso_net_id )
             if @current_user = User.find_by_net_id( sso_net_id )
               session[:user_id] = @current_user.id
             end
@@ -65,6 +66,10 @@ module CornellAssembliesRails
         def redirect_back_or_default(default)
           redirect_to(session[:return_to] || default)
           session[:return_to] = nil
+        end
+
+        def initialize_user( net_id )
+          User.find_or_create_by_net_id( net_id )
         end
 
       end
