@@ -6,7 +6,7 @@ class DatePickerInput < Formtastic::Inputs::StringInput
   end
 
   def input_html_options
-    super.merge( :class => 'ui-date-picker',
+    super.merge( :class => [super[:class], "ui-date-picker"].compact.join(" "),
       :value => object.send(method).try( :strftime, (DATE_FORMATS[:default] || '%Y-%m-%d') ) )
   end
 end
