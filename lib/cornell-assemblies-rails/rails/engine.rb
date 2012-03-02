@@ -10,6 +10,10 @@ module CornellAssembliesRails
         ::ActiveRecord::Base.send :include, Notifiable
         ::ActiveRecord::Base.send :include, Authenticable
         ::ActiveRecord::Base.send :include, Searchable
+        ActiveSupport.on_load :action_view do
+          DatePickerInput
+          DateTimePickerInput
+        end
       end
     end
 
