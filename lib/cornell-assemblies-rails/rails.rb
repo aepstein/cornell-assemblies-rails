@@ -7,6 +7,8 @@ module CornellAssembliesRails
     autoload :Searchable, 'cornell-assemblies-rails/rails/searchable'
     require 'cornell-assemblies-rails/rails/engine'
     require 'cornell-assemblies-rails/version'
+    DatePickerInput
+    DateTimePickerInput
   end
 end
 
