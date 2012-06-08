@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.1"
+  s.add_dependency "rails", "~> 3.2"
   s.add_dependency "jquery-rails", "~> 1.0.15"
   s.add_dependency "bcrypt-ruby", "~> 3.0.1"
   s.add_dependency "rails3-jquery-autocomplete", "~> 1.0.4"
