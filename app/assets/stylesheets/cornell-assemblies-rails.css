@@ -123,8 +123,12 @@ form label {
   margin: 0 auto;
 }
 
+table {
+  border: 0;
+}
+
 .row1 td {
-  background: #EFEFEF;
+  background: #DDDDDD;
 }
 
 .row2 td {
