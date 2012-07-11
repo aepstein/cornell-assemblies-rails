@@ -2,7 +2,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
-//= require_tree ./cornell-assemblies-rails
+//= require jquery-ui-timepicker-addon
+//= require cocoon
 
 $(document).ready(function(){
   $('input.ui-date-picker').datepicker({ dateFormat: 'yy-mm-dd' });
