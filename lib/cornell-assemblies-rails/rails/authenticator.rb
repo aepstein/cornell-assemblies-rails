@@ -35,12 +35,14 @@ module CornellAssembliesRails
               @current_user = nil
               session[:user_id] = nil
             end
+            @current_user.refresh if @current_user.respond_to? :refresh
             return @current_user unless @current_user.blank?
             initialize_user( sso_net_id )
             if @current_user = User.find_by_net_id( sso_net_id )
               session[:user_id] = @current_user.id
             end
           end
+          @current_user.refresh if @current_user.respond_to? :refresh
           @current_user
         end
 
@@ -70,6 +72,13 @@ module CornellAssembliesRails
 
         def initialize_user( net_id )
           User.find_or_create_by_net_id( net_id )
+        end
+
+        # Override this method in your application to refresh the current user
+        # * in particular, to synchronize with LDAP record if no sync in certain
+        #   timeframe
+        def refresh_current_user
+          current_user
         end
 
       end
