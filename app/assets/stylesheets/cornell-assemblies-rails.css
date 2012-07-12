@@ -125,6 +125,7 @@ form label {
 
 table {
   border: 0;
+  border-spacing: 0;
 }
 
 .row1 td {

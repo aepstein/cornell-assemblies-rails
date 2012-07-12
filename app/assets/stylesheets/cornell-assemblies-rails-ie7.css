@@ -2,3 +2,7 @@
  *= require formtastic_ie7
  */
 
+table {
+  border-collapse: collapse;
+}
+
