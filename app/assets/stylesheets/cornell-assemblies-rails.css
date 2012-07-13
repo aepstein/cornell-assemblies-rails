@@ -137,7 +137,7 @@ table {
 }
 
 #navigation-wrap {
-  background: #000000;
+  background: #6b6a5f;
   height: 30px;
   margin-bottom: 0px;
 }
@@ -161,7 +161,6 @@ table {
 
 #identity-wrap {
   background: #ffffff;
-  border-top: solid 1px #6b6a5f;
   border-bottom: solid 1px #6b6a5f;
   margin-top: 5px;
   margin-bottom: 10px;
