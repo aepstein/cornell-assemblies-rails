@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails3-jquery-autocomplete", "~> 1.0"
   s.add_dependency "formtastic", "~> 2.1"
   s.add_dependency "cocoon", "~> 1.0"
+  s.add_dependency "cornell_ldap", "~> 1.4.3"
 
   s.add_development_dependency "sqlite3"
 end

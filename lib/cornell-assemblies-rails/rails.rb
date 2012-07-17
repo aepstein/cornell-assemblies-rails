@@ -5,6 +5,8 @@ module CornellAssembliesRails
     autoload :Notifiable, 'cornell-assemblies-rails/rails/notifiable'
     autoload :Authenticable, 'cornell-assemblies-rails/rails/authenticable'
     autoload :Searchable, 'cornell-assemblies-rails/rails/searchable'
+    autoload :HasPhone, 'cornell-assemblies-rails/rails/has_phone'
+    autoload :HasLdapEntry, 'cornell-assemblies-rails/rails/has_ldap_entry'
     require 'cornell-assemblies-rails/rails/engine'
     require 'cornell-assemblies-rails/version'
   end
