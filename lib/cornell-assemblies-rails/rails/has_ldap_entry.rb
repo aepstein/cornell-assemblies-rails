@@ -5,8 +5,7 @@ module CornellAssembliesRails
     module HasLdapEntry
       module ClassMethods
         def has_ldap_entry(key_field)
-          key_field = key_field.to_sym
-          def self.ldap_entry_key { key_field }
+          instance_eval "def ldap_entry_key; :#{key_field}; end"
           include InstanceMethods
         end
       end
