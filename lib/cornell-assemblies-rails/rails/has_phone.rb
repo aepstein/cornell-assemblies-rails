@@ -4,10 +4,12 @@ module CornellAssembliesRails
       module ClassMethods
         def has_phone(*attributes)
           attributes.each do |attribute|
-            define_method( attribute ) do
-              return super if super.blank?
-              super.to_phone
-            end
+            class_eval <<-RUBY
+              def #{attribute}(style=nil)
+                return super if super.blank?
+                super.to_phone(style)
+              end
+            RUBY
           end
           include InstanceMethods
         end
