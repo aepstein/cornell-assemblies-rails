@@ -6,8 +6,8 @@ module CornellAssembliesRails
           attributes.each do |attribute|
             class_eval <<-RUBY
               def #{attribute}(style=nil)
-                return super if super.blank?
-                super.to_phone(style)
+                return super() if super().blank?
+                super().to_phone(style)
               end
             RUBY
           end
