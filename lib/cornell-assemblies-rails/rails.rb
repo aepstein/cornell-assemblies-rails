@@ -7,6 +7,8 @@ module CornellAssembliesRails
     autoload :Searchable, 'cornell-assemblies-rails/rails/searchable'
     autoload :HasPhone, 'cornell-assemblies-rails/rails/has_phone'
     autoload :HasLdapEntry, 'cornell-assemblies-rails/rails/has_ldap_entry'
+    autoload :TableHelpers, 'cornell-assemblies-rails/rails/table_helpers'
+    autoload :MarkdownHelpers, 'cornell-assemblies-rails/rails/markdown_helpers'
     require 'cornell-assemblies-rails/rails/engine'
     require 'cornell-assemblies-rails/version'
   end

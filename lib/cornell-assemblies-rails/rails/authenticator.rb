@@ -49,8 +49,7 @@ module CornellAssembliesRails
         def require_user
           unless current_user
             store_location
-            flash[:notice] = 'You must log in to access this page.'
-            redirect_to login_url
+            redirect_to login_url, notice: 'You must log in to access this page.'
           end
         end
 

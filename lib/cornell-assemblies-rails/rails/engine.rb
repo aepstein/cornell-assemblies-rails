@@ -4,6 +4,7 @@ module CornellAssembliesRails
 
     class Engine < ::Rails::Engine
       require 'cocoon'
+      require 'bluecloth'
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
       initializer "cornell-assemblies-rails.authenticator" do
         ::ActionController::Base.send :include, Authenticator
@@ -13,9 +14,11 @@ module CornellAssembliesRails
         ::ActiveRecord::Base.send :include, Searchable
         ::ActiveRecord::Base.send :include, HasPhone
         ::ActiveRecord::Base.send :include, HasLdapEntry
-        ActiveSupport.on_load :action_view do
+        ::ActiveSupport.on_load :action_view do
           DatePickerInput
           DateTimePickerInput
+          ::ActionView::Base.send :include, TableHelpers
+          ::ActionView::Base.send :include, MarkdownHelpers
         end
       end
     end
