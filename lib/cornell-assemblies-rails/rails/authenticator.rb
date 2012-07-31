@@ -49,7 +49,7 @@ module CornellAssembliesRails
         def require_user
           unless current_user
             store_location
-            redirect_to login_url, notice: 'You must log in to access this page.'
+            redirect_to login_url, alert: 'You must log in to access this page.'
           end
         end
 
