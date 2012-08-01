@@ -22,9 +22,9 @@ module CornellAssembliesRails
           @notifiable_events ||= Array.new
           options = events.extract_options!
           return @notifiable_events if events.empty?
-          ifs = [ options.delete( :if ) || [] ].flatten.map { |c| "send(:#{c})" }.join(' && ')
+          ifs = [ options.delete( :if ) || [] ].flatten.map(&:to_s).join(' && ')
           ifs = "return false unless #{ifs}" unless ifs.empty?
-          unlesses = [ options.delete( :unless ) || [] ].flatten.map { "send(:#{c})" }.join(' || ')
+          unlesses = [ options.delete( :unless ) || [] ].flatten.map(&:to_s).join(' || ')
           unlesses = "return false if #{unlesses}" unless unlesses.empty?
           new_events = events - notifiable_events
           new_events.flatten.each do |event|
