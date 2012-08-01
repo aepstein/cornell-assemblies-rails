@@ -39,7 +39,7 @@ module CornellAssembliesRails
                 return false unless persisted?
                 #{ifs}
                 #{unlesses}
-                message = #{self}Mailer.constantize.#{event}_notice( self ).deliver
+                message = #{self}Mailer.#{event}_notice( self ).deliver
                 logger.info "Sent #{event} notice for #{self}#\#{id} to: " +
                   "\#{message.to}, cc: \#{message.cc}, bcc: \#{message.bcc}."
                 self.update_column :#{event}_notice_at, Time.zone.now
