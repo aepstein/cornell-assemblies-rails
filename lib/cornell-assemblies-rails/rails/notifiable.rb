@@ -22,8 +22,10 @@ module CornellAssembliesRails
           @notifiable_events ||= Array.new
           options = events.extract_options!
           return @notifiable_events if events.empty?
-          ifs = [ options.delete( :if ) || [] ].flatten
-          unlesses = [ options.delete( :unless ) || [] ].flatten
+          ifs = [ options.delete( :if ) || [] ].flatten.map { |c| "send(:#{c})" }.join(' && ')
+          ifs = "return false unless #{ifs}" unless ifs.empty?
+          unlesses = [ options.delete( :unless ) || [] ].flatten.map { "send(:#{c})" }.join(' || ')
+          unlesses = "return false if #{unlesses}" unless unlesses.empty?
           new_events = events - notifiable_events
           new_events.flatten.each do |event|
             scope "no_#{event}_notice".to_sym, where( "#{event}_notice_at".to_sym => nil )
@@ -32,15 +34,17 @@ module CornellAssembliesRails
               f = arel_table["#{event}_notice_at".to_sym]
               where( f.eq( nil ).or( f.lt( time ) ) )
             }
-            define_method "send_#{event}_notice!".to_sym do
-              ifs.each { |condition| return false unless send(condition) }
-              unlesses.each { |condition| return false if send(condition) }
-              message = "#{self.class}Mailer".constantize.send( "#{event}_notice", self ).deliver
-              logger.info "Sent #{event} notice for #{self.class}##{id} to: " +
-                "#{message.to}, cc: #{message.cc}, bcc: #{message.bcc}."
-              send "#{event}_notice_at=", Time.zone.now
-              save! :validate => false
-            end
+            class_eval <<-RUBY
+              def send_#{event}_notice!
+                return false unless persisted?
+                #{ifs}
+                #{unlesses}
+                message = #{self}Mailer.constantize.#{event}_notice( self ).deliver
+                logger.info "Sent #{event} notice for #{self}#\#{id} to: " +
+                  "\#{message.to}, cc: \#{message.cc}, bcc: \#{message.bcc}."
+                self.update_column :#{event}_notice_at, Time.zone.now
+              end
+            RUBY
           end
           @notifiable_events += new_events
         end
