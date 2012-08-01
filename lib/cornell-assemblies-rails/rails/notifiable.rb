@@ -27,6 +27,7 @@ module CornellAssembliesRails
           unlesses = [ options.delete( :unless ) || [] ].flatten.map(&:to_s).join(' || ')
           unlesses = "return false if #{unlesses}" unless unlesses.empty?
           new_events = events - notifiable_events
+          puts "Ifs: #{ifs}"
           new_events.flatten.each do |event|
             scope "no_#{event}_notice".to_sym, where( "#{event}_notice_at".to_sym => nil )
             scope "no_#{event}_notice_since".to_sym, lambda { |time|
