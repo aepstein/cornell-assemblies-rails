@@ -18,5 +18,14 @@ class CornellAssembliesRailsTest < ActiveSupport::TestCase
     assert_equal '5/8847', '5/8847'.to_phone
     assert_equal '555 1212', '555 1212'.to_phone
   end
+
+  test "listify" do
+    assert_equal '', [].listify
+    assert_equal 'a', %w( a ).listify
+    assert_equal 'a and b', %w( a b ).listify
+    assert_equal 'a or b', %w( a b ).listify(joiner: 'or')
+    assert_equal 'a, b, and c', %w( a b c ).listify
+    assert_equal 'a; b; or c', %w( a b c ).listify(separator: ';', joiner: 'or')
+  end
 end
 
