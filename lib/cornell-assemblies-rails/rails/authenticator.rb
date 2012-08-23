@@ -33,12 +33,13 @@ module CornellAssembliesRails
           if sso_net_id
             if @current_user && @current_user.net_id != sso_net_id
               @current_user = nil
-              session[:user_id] = nil
+              reset_session
             end
             @current_user.refresh if @current_user.respond_to? :refresh
             return @current_user unless @current_user.blank?
             initialize_user( sso_net_id )
             if @current_user = User.find_by_net_id( sso_net_id )
+              reset_session
               session[:user_id] = @current_user.id
             end
           end
