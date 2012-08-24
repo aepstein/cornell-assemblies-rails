@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cocoon", "~> 1.0"
   s.add_dependency "cornell_ldap", "~> 1.4.3"
   s.add_dependency "bluecloth", "~> 2.0"
+  s.add_dependency "best_in_place", "~> 1.1"
 
   s.add_development_dependency "sqlite3"
 end
