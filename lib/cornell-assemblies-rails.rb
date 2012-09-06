@@ -1,4 +1,5 @@
 require 'rails3-jquery-autocomplete'
+require 'best_in_place'
 require 'cornell-assemblies-rails/rails'
 require 'cornell-assemblies-rails/core_ext/big_decimal'
 require 'cornell-assemblies-rails/core_ext/float'
