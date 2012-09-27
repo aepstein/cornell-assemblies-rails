@@ -3,8 +3,7 @@ module CornellAssembliesRails
     module MarkdownHelpers
 
       def markdown( content )
-        sanitize Markdown.new(content, tables: true).to_html,
-          tags: %w( table thead tbody th tr td )
+        sanitize Markdown.new(content, tables: true).to_html
       end
 
     end
