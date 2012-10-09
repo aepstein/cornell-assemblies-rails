@@ -2,8 +2,8 @@ module CornellAssembliesRails
   module Rails
     module TableHelpers
 
-      def table_row_tag(increment=true, preorder=false, &block)
-        content_tag 'tr', capture(&block), class: table_row_class(increment,preorder)
+      def table_row_tag(increment=true, preorder=false, options={}, &block)
+        content_tag 'tr', capture(&block), options.merge( { class: table_row_class(increment,preorder) } )
       end
 
       def table_row_class(increment=true,preorder=false)
