@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.summary     = "Provides asset pipeline elements to implement Cornell Office of the Assemblies look and feel."
   s.description = "This package is used to provide uniform look and feel across applications developed for the Office of the Assemblies."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*"] + ["Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.1"
+  s.add_dependency "railties", "~> 3.2"
   s.add_dependency "jquery-rails", "~> 2.0"
   s.add_dependency "bcrypt-ruby", "~> 3.0"
   s.add_dependency "rails3-jquery-autocomplete", "~> 1.0"
