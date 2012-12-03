@@ -17,6 +17,7 @@ module CornellAssembliesRails
         ::ActiveSupport.on_load :action_view do
           DatePickerInput
           DateTimePickerInput
+          CocoonInput
           ::ActionView::Base.send :include, TableHelpers
           ::ActionView::Base.send :include, MarkdownHelpers
         end

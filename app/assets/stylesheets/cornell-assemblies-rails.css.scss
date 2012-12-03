@@ -17,6 +17,37 @@ form.formtastic { clear: both; }
 .ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
 
+
+/* For sortable cocoons (see https://github.com/nathanvda/cocoon/pull/104) */
+li.cocoon {
+  & > label {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  ol {
+    padding: 0 !important;
+    width: auto !important;
+    float: none !important;
+  }
+
+  fieldset {
+    padding: 1em !important;
+  }
+
+  .links a {
+    @extend .button;
+  }
+
+  .forms.ui-sortable {
+    fieldset {
+      border-top: solid #777 12px;
+      cursor: move;
+    }
+  }
+}
+
 /* basic look and feel (inspired by nifty_generator) */
 html, body {
   background-color: #d7d6d1;
