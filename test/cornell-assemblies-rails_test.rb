@@ -27,5 +27,14 @@ class CornellAssembliesRailsTest < ActiveSupport::TestCase
     assert_equal 'a, b, and c', %w( a b c ).listify
     assert_equal 'a; b; or c', %w( a b c ).listify(separator: ';', joiner: 'or')
   end
+
+  test 'to_roman' do
+    assert_equal 'I', 1.to_roman
+  end
+
+  test 'to_i_from_roman' do
+    assert_equal 1, 'I'.to_i_from_roman
+    assert_equal 1, 'i'.to_i_from_roman
+  end
 end
 
