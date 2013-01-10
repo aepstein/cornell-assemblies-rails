@@ -5,6 +5,8 @@ module CornellAssembliesRails
     class Engine < ::Rails::Engine
       require 'cocoon'
       require 'bluecloth'
+      require 'formtastic'
+      require 'formtastic-bootstrap'
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
       initializer "cornell-assemblies-rails.authenticator" do
         ::ActionController::Base.send :include, Authenticator
@@ -21,6 +23,7 @@ module CornellAssembliesRails
           ::ActionView::Base.send :include, TableHelpers
           ::ActionView::Base.send :include, MarkdownHelpers
         end
+        ::Formtastic::Helpers::FormHelper.builder = ::FormtasticBootstrap::FormBuilder
       end
     end
 
