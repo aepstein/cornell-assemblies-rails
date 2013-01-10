@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.purr
-//= require bootstrap
 //= require best_in_place
 //= require autocomplete-rails
 //= require jquery-ui-timepicker-addon

@@ -1,9 +1,6 @@
 /*
  *= require formtastic
- *= require formtastic-bootstrap
  */
-
-@import "bootstrap";
 
 /* css for formtastic */
 form.formtastic fieldset ol li.string input { width:70%; }
