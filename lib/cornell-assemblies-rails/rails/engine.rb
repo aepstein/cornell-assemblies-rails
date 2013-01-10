@@ -5,6 +5,7 @@ module CornellAssembliesRails
     class Engine < ::Rails::Engine
       require 'cocoon'
       require 'bluecloth'
+      require 'bootstrap-sass'
       require 'formtastic'
       require 'formtastic-bootstrap'
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
