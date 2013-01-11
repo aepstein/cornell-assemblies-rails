@@ -5,6 +5,7 @@
 //= require best_in_place
 //= require autocomplete-rails
 //= require jquery-ui-timepicker-addon
+//= require bootstrap
 //= require cocoon
 
 $(document).ready(function(){
