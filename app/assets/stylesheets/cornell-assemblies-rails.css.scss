@@ -1,16 +1,7 @@
 /*
- *= require formtastic
  */
 
 @import "bootstrap";
-
-/* css for formtastic */
-form.formtastic fieldset ol li.string input { width:70%; }
-form.formtastic fieldset ol li.password input { width:70%; }
-form.formtastic fieldset ol li.numeric input { width:70%; }
-form.formtastic fieldset ol li.text textarea { width:70%; }
-form.formtastic legend span { font-weight: bold; }
-form.formtastic { clear: both; }
 
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
