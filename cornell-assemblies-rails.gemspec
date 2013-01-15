@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bluecloth", "~> 2.0"
   s.add_dependency "best_in_place", "~> 1.1"
   s.add_dependency "formtastic", "~> 2.0"
+  s.add_dependency "exception_notification", "~> 2.6"
 
   s.add_development_dependency "sqlite3"
 end
