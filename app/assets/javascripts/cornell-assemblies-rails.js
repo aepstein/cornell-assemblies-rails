@@ -6,6 +6,7 @@
 //= require autocomplete-rails
 //= require jquery-ui-timepicker-addon
 //= require bootstrap
+//= require cornell-assemblies-dates
 //= require cocoon
 
 $(document).ready(function(){
