@@ -20,6 +20,7 @@ module CornellAssembliesRails
           CocoonInput
           ::ActionView::Base.send :include, TableHelpers
           ::ActionView::Base.send :include, MarkdownHelpers
+          ::ActionView::Base.send :include, FlashHelpers
         end
         ::SimpleForm::FormBuilder.send :include, WrappedButton
       end

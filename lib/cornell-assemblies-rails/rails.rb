@@ -3,6 +3,7 @@ module CornellAssembliesRails
     autoload :Authenticator, 'cornell-assemblies-rails/rails/authenticator'
     autoload :Breadcrumbs, 'cornell-assemblies-rails/rails/breadcrumbs'
     autoload :Notifiable, 'cornell-assemblies-rails/rails/notifiable'
+    autoload :FlashHelpers, 'cornell-assemblies-rails/rails/flash_helpers'
     autoload :Authenticable, 'cornell-assemblies-rails/rails/authenticable'
     autoload :Searchable, 'cornell-assemblies-rails/rails/searchable'
     autoload :HasPhone, 'cornell-assemblies-rails/rails/has_phone'
