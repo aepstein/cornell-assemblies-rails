@@ -6,6 +6,7 @@ module CornellAssembliesRails
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
       initializer "cornell-assemblies-rails.authenticator" do
         Date::DATE_FORMATS[:us_short] = '%m/%d/%Y'
+        Time::DATE_FORMATS[:us_short] = '%m/%d/%Y %I:%M:%S %P'
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
         ::ActiveRecord::Base.send :include, Notifiable
