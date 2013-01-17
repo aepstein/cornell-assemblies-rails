@@ -62,14 +62,6 @@ a {
   overflow: hidden;
 }
 
-#container {
-  width: 960px;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-}
-
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
@@ -125,28 +117,6 @@ form label {
   display: block;
 }
 
-#header {
-/*  width: 960px; */
-  margin: 0 auto;
-}
-
-#navigation ul {
-  list-style-type:none;
-  margin:0;
-  padding:0;
-  padding-top:6px;
-  padding-bottom:6px;
-}
-
-#navigation li {
-  display:inline;
-}
-
-#footer {
-  width: 960px;
-  margin: 0 auto;
-}
-
 table {
   border: 0;
   border-spacing: 0;
@@ -158,49 +128,6 @@ table {
 
 .row2 td {
   background: #EEEEEE;
-}
-
-#navigation-wrap {
-  background: #6b6a5f;
-  height: 30px;
-  margin-bottom: 0px;
-}
-
-#navigation {
-  position: relative;
-  width: 960px;
-  margin: 0 auto;
-  color: #FFFFFF;
-}
-
-#navigation a {
-  color: #FFFFFF;
-  text-decoration: none;
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-
-#navigation a:hover {
-  background: #FFFFFF;
-  color: #000000;
-}
-
-#identity-wrap {
-  background: #ffffff;
-  border-bottom: solid 1px #6b6a5f;
-  margin-bottom: 15px;
-}
-
-#identity {
-  width: 960px;
-  margin: 0 auto;
-}
-
-#identity h1 {
-  font-style: italic;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  color: #6b6a5f
 }
 
 .warning_messages {
