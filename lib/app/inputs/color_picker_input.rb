@@ -1,4 +1,4 @@
-class DateTimePickerInput < SimpleForm::Inputs::String
+class DateTimePickerInput < SimpleForm::Inputs::StringInput
   def input_html_classes
     super.push "colorpicker"
   end
