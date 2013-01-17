@@ -8,10 +8,15 @@
 //= require bootstrap
 //= require cornell-assemblies-dates
 //= require cocoon
+//= require bootstrap-colorpicker
 
 $(document).ready(function() {
   jQuery(".best_in_place").best_in_place();
 });
+
+$(document).ready(function() {
+  jQuery(".colorpicker").colorpicker();
+})
 
 // Sortable cocoon (see https://github.com/nathanvda/cocoon/pull/104)
 (function($) {
