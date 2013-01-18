@@ -14,5 +14,5 @@ $ ->
       altFieldTimeOnly: false
       altTimeFormat: "HH:mm:'00'"
       dateFormat: 'mm/dd/yy'
-      timeFormat: 'hh:mm tt'
+      timeFormat: "hh:mm:'00' tt"
 
