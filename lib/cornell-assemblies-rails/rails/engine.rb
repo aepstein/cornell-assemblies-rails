@@ -16,6 +16,7 @@ module CornellAssembliesRails
         ::ActiveRecord::Base.send :include, Searchable
         ::ActiveRecord::Base.send :include, HasPhone
         ::ActiveRecord::Base.send :include, HasLdapEntry
+        ::ActiveRecord::Base.send :include, HasUserName
         ::ActiveSupport.on_load :action_view do
           DatePickerInput
           DateTimePickerInput
