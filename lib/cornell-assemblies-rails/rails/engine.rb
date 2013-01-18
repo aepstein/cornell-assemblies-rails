@@ -7,6 +7,8 @@ module CornellAssembliesRails
       initializer "cornell-assemblies-rails.authenticator" do
         Date::DATE_FORMATS[:us_short] = '%m/%d/%Y'
         Time::DATE_FORMATS[:us_short] = '%m/%d/%Y %I:%M:%S %P'
+        Time::DATE_FORMATS[:us_ordinal] = lambda { |time|
+          time.strftime "%B #{ActiveSupport::Inflector.ordinalize time.day}, %Y %I:%M %P" }
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
         ::ActiveRecord::Base.send :include, Notifiable
