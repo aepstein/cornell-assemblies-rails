@@ -11,7 +11,7 @@ module CornellAssembliesRails
     autoload :TableHelpers, 'cornell-assemblies-rails/rails/table_helpers'
     autoload :MarkdownHelpers, 'cornell-assemblies-rails/rails/markdown_helpers'
     autoload :WrappedButton, 'cornell-assemblies-rails/rails/wrapped_button'
-    autolaod :HasUserName, 'cornell-assemblies-rails/rails/has_user_name'
+    autoload :HasUserName, 'cornell-assemblies-rails/rails/has_user_name'
     require 'cornell-assemblies-rails/rails/engine'
     require 'cornell-assemblies-rails/version'
   end
