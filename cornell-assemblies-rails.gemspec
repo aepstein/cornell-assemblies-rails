@@ -27,6 +27,8 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form", "~> 2.0"
   s.add_dependency "bootstrap-sass", "~> 2.2"
   s.add_dependency "tabulous", "~> 1.3"
+  s.add_dependency "kaminari", "~> 0.14"
+  s.add_dependency "kaminari-bootstrap", "~> 0.1"
 
   s.add_development_dependency "sqlite3"
 end
