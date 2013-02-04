@@ -30,7 +30,7 @@ class CocoonInput < SimpleForm::Inputs::Base
 
   def links
     template.content_tag(:div, class: 'links') do
-      template.link_to_add_association template.t(".add_#{singular_attribute_name}"), builder, attribute_name, input_html_options
+      template.link_to_add_association template.t(".add_#{singular_attribute_name}"), @builder, attribute_name, input_html_options
     end
   end
 
