@@ -9,7 +9,7 @@ class CocoonInput < SimpleForm::Inputs::Base
   end
 
   def wrapper_html_options
-    data = super.merge( class: 'input cocoon' )
+    data = { class: 'input cocoon' }
     if options[:ordered_by]
       data['data-ordered_by'] = options[:ordered_by]
     end
