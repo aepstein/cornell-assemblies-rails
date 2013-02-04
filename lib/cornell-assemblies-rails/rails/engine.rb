@@ -9,6 +9,8 @@ module CornellAssembliesRails
         Time::DATE_FORMATS[:us_short] = '%m/%d/%Y %I:%M:%S %P'
         Time::DATE_FORMATS[:us_ordinal] = lambda { |time|
           time.strftime "%B #{ActiveSupport::Inflector.ordinalize time.day}, %Y %I:%M %P" }
+        Time::DATE_FORMATS[:short_year] = "%d %b %Y %H:%M"
+        Time::DATE_FORMATS[:us_time] = "%l:%M%P"
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
         ::ActiveRecord::Base.send :include, Notifiable

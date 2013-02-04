@@ -3,7 +3,7 @@
 class CocoonInput < SimpleForm::Inputs::Base
 
   def input
-    output = wrapped_semantic_fields << links
+    output = wrapped_simple_fields << links
 
     template.content_tag(:div, output.html_safe, wrapper_html_options)
   end
@@ -16,16 +16,16 @@ class CocoonInput < SimpleForm::Inputs::Base
     data
   end
 
-  def semantic_fields_for
-    builder.simple_fields_for(method) do |fields|
+  def simple_fields_for
+    @builder.simple_fields_for(method) do |fields|
       if fields.object
         template.render partial: "#{singular_method}_fields", locals: { f: fields }
       end
     end
   end
 
-  def wrapped_semantic_fields
-    template.content_tag(:div, semantic_fields_for, class: 'forms')
+  def wrapped_simple_fields
+    template.content_tag(:div, simple_fields_for, class: 'forms')
   end
 
   def links
