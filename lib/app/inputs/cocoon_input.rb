@@ -17,9 +17,9 @@ class CocoonInput < SimpleForm::Inputs::Base
   end
 
   def simple_fields_for
-    @builder.simple_fields_for(method) do |fields|
+    @builder.simple_fields_for(attribute_name) do |fields|
       if fields.object
-        template.render partial: "#{singular_method}_fields", locals: { f: fields }
+        template.render partial: "#{singular_attribute_name}_fields", locals: { f: fields }
       end
     end
   end
@@ -30,7 +30,7 @@ class CocoonInput < SimpleForm::Inputs::Base
 
   def links
     template.content_tag(:div, class: 'links') do
-      template.link_to_add_association template.t(".add_#{singular_method}"), builder, method, input_html_options
+      template.link_to_add_association template.t(".add_#{singular_attribute_name}"), builder, attribute_name, input_html_options
     end
   end
 
@@ -44,8 +44,8 @@ class CocoonInput < SimpleForm::Inputs::Base
 
   private
 
-  def singular_method
-    @singular_method ||= method.to_s.singularize
+  def singular_attribute_name
+    @singular_attribute_name ||= attribute_name.to_s.singularize
   end
 end
 
