@@ -1,4 +1,4 @@
-class DateTimePickerInput < SimpleForm::Inputs::String
+class DateTimePickerInput < SimpleForm::Inputs::StringInput
   def input
     super +
     @builder.hidden_field(attribute_name, { class: attribute_name.to_s + "-alt"})
