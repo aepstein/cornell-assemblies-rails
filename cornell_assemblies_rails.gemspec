@@ -1,11 +1,11 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "cornell-assemblies-rails/version"
+require "cornell_assemblies_rails/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "cornell-assemblies-rails"
+  s.name        = "cornell_assemblies_rails"
   s.version     = CornellAssembliesRails::VERSION
   s.authors     = ["Ari Epstein"]
   s.email       = ["ate2@cornell.edu"]

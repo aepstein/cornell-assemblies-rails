@@ -4,7 +4,7 @@ module CornellAssembliesRails
 
     class Engine < ::Rails::Engine
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
-      initializer "cornell-assemblies-rails.authenticator" do
+      initializer "cornell_assemblies_rails.authenticator" do
         Date::DATE_FORMATS[:us_short] = '%m/%d/%Y'
         Time::DATE_FORMATS[:us_short] = '%m/%d/%Y %I:%M:%S %P'
         Time::DATE_FORMATS[:us_ordinal] = lambda { |time|

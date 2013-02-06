@@ -1,5 +1,5 @@
-require 'cornell-assemblies-rails/phone_methods'
-require 'cornell-assemblies-rails/roman/string_methods'
+require 'cornell_assemblies_rails/phone_methods'
+require 'cornell_assemblies_rails/roman/string_methods'
 
 class String
   include CornellAssembliesRails::PhoneMethods

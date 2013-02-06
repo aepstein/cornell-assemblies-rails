@@ -1,9 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
 Bundler.require
-require "cornell-assemblies-rails"
+require "cornell_assemblies_rails"
 
 module Dummy
   class Application < Rails::Application

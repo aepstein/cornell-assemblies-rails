@@ -1,4 +1,4 @@
-require 'cornell-assemblies-rails/roman'
+require 'cornell_assemblies_rails/roman'
 
 module CornellAssembliesRails
   module Roman

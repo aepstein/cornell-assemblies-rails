@@ -1,4 +1,4 @@
-require 'cornell-assemblies-rails/currency_methods'
+require 'cornell_assemblies_rails/currency_methods'
 
 class Float
   include CornellAssembliesRails::CurrencyMethods

@@ -36,5 +36,21 @@ class CornellAssembliesRailsTest < ActiveSupport::TestCase
     assert_equal 1, 'I'.to_i_from_roman
     assert_equal 1, 'i'.to_i_from_roman
   end
+
+  test 'floor' do
+    # Time is 10:44:24
+    t = Time.at 1360165464
+    assert_equal t.sec, 24
+    assert_equal t.floor.sec, 0
+    assert_equal t.floor.min, 44
+  end
+
+  test 'ceil' do
+    # Time is 10:44:24
+    t = Time.at 1360165464
+    assert_equal t.sec, 24
+    assert_equal t.ceil.sec, 0
+    assert_equal t.ceil.min, 45
+  end
 end
 
