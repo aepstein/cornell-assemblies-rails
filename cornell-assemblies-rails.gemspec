@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "railties", "~> 3.2"
   s.add_dependency "jquery-rails", "~> 2.0"
+  s.add_dependency "jquery-ui-rails", "~> 4.0"
   s.add_dependency "bcrypt-ruby", "~> 3.0"
   s.add_dependency "rails3-jquery-autocomplete", "~> 1.0"
   s.add_dependency "cocoon", "~> 1.0"
