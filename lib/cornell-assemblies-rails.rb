@@ -1,4 +1,3 @@
-require 'rails3-jquery-autocomplete'
 require 'jquery-rails'
 require 'jquery-ui-rails'
 require 'best_in_place'

@@ -3,7 +3,6 @@
 //= require jquery.ui.all
 //= require jquery.purr
 //= require best_in_place
-//= require autocomplete-rails
 //= require jquery-ui-timepicker-addon
 //= require bootstrap
 //= require cornell-assemblies-dates
@@ -15,6 +14,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  jQuery(".colorpicker").colorpicker();
+  jQuery("input.colorpicker").colorpicker();
 })
 
