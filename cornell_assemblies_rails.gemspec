@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", "~> 0.14"
   s.add_dependency "kaminari-bootstrap", "~> 0.1"
   s.add_dependency "cornell_netid", "~> 1.1"
+  s.add_dependency "rails3-jquery-autocomplete", "~> 1.0"
 
   s.add_development_dependency "sqlite3"
 end
