@@ -11,6 +11,7 @@ module CornellAssembliesRails
           args << options
           primary = if label
             args.unshift label
+            args.unshift :button
             button(*args, &block)
           else
             submit(*args, &block)
