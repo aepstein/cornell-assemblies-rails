@@ -8,7 +8,6 @@
 //= require cornell-assemblies-dates
 //= require cocoon
 //= require bootstrap-colorpicker
-//= require autocomplete-rails
 
 $(document).ready(function() {
   jQuery(".best_in_place").best_in_place();
