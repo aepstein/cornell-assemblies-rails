@@ -26,6 +26,6 @@ $ ->
   $(".best_in_place").best_in_place()
   $("input.colorpicker").colorpicker()
   $(".autocomplete").autocomplete(
-    source: $(this).data("url"),
+    source: ( -> $(this).data("url")),
     minLength: 2 )
 
