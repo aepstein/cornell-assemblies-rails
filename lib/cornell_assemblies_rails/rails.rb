@@ -2,6 +2,7 @@ module CornellAssembliesRails
   module Rails
     autoload :Authenticator, 'cornell_assemblies_rails/rails/authenticator'
     autoload :Breadcrumbs, 'cornell_assemblies_rails/rails/breadcrumbs'
+    autoload :CocoonHelpers, 'cornell_assemblies_rails/rails/cocoon_helpers'
     autoload :Notifiable, 'cornell_assemblies_rails/rails/notifiable'
     autoload :FlashHelpers, 'cornell_assemblies_rails/rails/flash_helpers'
     autoload :Authenticable, 'cornell_assemblies_rails/rails/authenticable'
