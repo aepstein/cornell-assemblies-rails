@@ -33,6 +33,19 @@ $ ->
         $.cornellUI.updateParent( item ) ) )
       $(list).unbind('cocoon:after-remove').bind( 'cocoon:after-remove', ( ( event, item ) ->
         $.cornellUI.updateParent( item ) ) )
+    applyAutocomplete: (scope) ->
+      $(scope).find(".autocomplete").each (i) ->
+        sourceURL = $(this).data("url")
+        dynamicTerm = $(this).data("dynamic_term")
+        dynamicID = $(this).data("dynamic_id")
+        $(this).autocomplete(
+          source: ( (request, response) ->
+            options = { term: request.term.split().pop().replace(/^\s+/,"") }
+            if dynamicTerm and dynamicID
+              dElement = "#" + dynamicID
+              options[dynamicTerm] = ( $(dElement).attr("value") or $(dElement).find("option[selected]").attr("value") )
+            $.getJSON( sourceURL, options, response ) ),
+          minLength: 2 )
     applyBehaviors: (scope) ->
       console.log( scope )
       $(scope).find("input.ui-date-picker").each (i) ->
@@ -51,18 +64,7 @@ $ ->
           timeFormat: "hh:mm:'00' tt"
       $(scope).find(".best_in_place").best_in_place()
       $(scope).find("input.colorpicker").colorpicker()
-      $(scope).find(".autocomplete").each (i) ->
-        sourceURL = $(this).data("url")
-        dynamicTerm = $(this).data("dynamic_term")
-        dynamicID = $(this).data("dynamic_id")
-        $(this).autocomplete(
-          source: ( (request, response) ->
-            options = { term: request.term.split().pop().replace(/^\s+/,"") }
-            if dynamicTerm and dynamicID
-              dElement = "#" + dynamicID
-              options[dynamicTerm] = ( $(dElement).attr("value") or $(dElement).find("option[selected]").attr("value") )
-            $.getJSON( sourceURL, options, response ) ),
-          minLength: 2 )
+      $.cornellUI.applyAutocomplete( $(scope) )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )
       $.cornellUI.setupOrderedList( $(scope).find("fieldset[data-ordered-by]") )
   $.cornellUI.applyBehaviors( $("body") )
