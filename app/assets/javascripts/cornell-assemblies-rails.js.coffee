@@ -53,10 +53,15 @@ $ ->
       $(scope).find("input.colorpicker").colorpicker()
       $(scope).find(".autocomplete").each (i) ->
         sourceURL = $(this).data("url")
+        dynamicTerm = $(this).data("dynamic_term")
+        dynamicID = $(this).data("dynamic_id")
         $(this).autocomplete(
           source: ( (request, response) ->
-            $.getJSON( sourceURL,
-              { term: request.term.split().pop().replace(/^\s+/,"") }, response ) ),
+            options = { term: request.term.split().pop().replace(/^\s+/,"") }
+            if dynamicTerm and dynamicID
+              dElement = "#" + dynamicID
+              options[dynamicTerm] = ( $(dElement).value or $(dElement).find("option[selected]").value )
+            $.getJSON( sourceURL, options, response ) ),
           minLength: 2 )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )
       $.cornellUI.setupOrderedList( $(scope).find("fieldset[data-ordered-by]") )
