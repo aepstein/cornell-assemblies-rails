@@ -36,8 +36,8 @@ $ ->
     applyAutocomplete: (scope) ->
       $(scope).find(".autocomplete").each (i) ->
         sourceURL = $(this).data("url")
-        dynamicTerm = $(this).data("dynamic_term")
-        dynamicID = $(this).data("dynamic_id")
+        dynamicTerm = $(this).data("dynamic-term")
+        dynamicID = $(this).data("dynamic-id")
         $(this).autocomplete(
           source: ( (request, response) ->
             options = { term: request.term.split().pop().replace(/^\s+/,"") }
