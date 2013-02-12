@@ -60,7 +60,7 @@ $ ->
             options = { term: request.term.split().pop().replace(/^\s+/,"") }
             if dynamicTerm and dynamicID
               dElement = "#" + dynamicID
-              options[dynamicTerm] = ( $(dElement).value or $(dElement).find("option[selected]").value )
+              options[dynamicTerm] = ( $(dElement).attr("value") or $(dElement).find("option[selected]").attr("value") )
             $.getJSON( sourceURL, options, response ) ),
           minLength: 2 )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )
