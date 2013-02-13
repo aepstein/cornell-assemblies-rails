@@ -1,12 +1,11 @@
 class AutocompleteInput < SimpleForm::Inputs::StringInput
   def input
-    super +
-    @builder.hidden_field(attribute_name, {  class: ( attribute_name.to_s + "-alt" ),
-      value: object.send(attribute_name).try( options[:value_method] ) } )
-  end
-
-  def input_html_classes
-    super.push "ui-date-picker"
+    super + if options[:label_method] != options[:value_method]
+      @builder.hidden_field(attribute_name, {  class: ( "autocomplete-target" ),
+        value: object.send(attribute_name).try( options[:value_method] ) } )
+    else
+      ""
+    end
   end
 
   def input_html_options
