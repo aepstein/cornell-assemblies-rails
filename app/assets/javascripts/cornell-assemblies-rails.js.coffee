@@ -43,7 +43,7 @@ $ ->
             options = { term: request.term.split().pop().replace(/^\s+/,"") }
             if dynamicTerm and dynamicID
               dElement = "#" + dynamicID
-              options[dynamicTerm] = ( $(dElement).find("option[selected]").attr("value") or $(dElement).attr("value") )
+              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
             $.getJSON( sourceURL, options, response ) ),
           minLength: 2 )
     applyBehaviors: (scope) ->
