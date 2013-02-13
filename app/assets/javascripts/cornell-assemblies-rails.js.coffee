@@ -33,19 +33,26 @@ $ ->
         $.cornellUI.updateParent( item ) ) )
       $(list).unbind('cocoon:after-remove').bind( 'cocoon:after-remove', ( ( event, item ) ->
         $.cornellUI.updateParent( item ) ) )
-    applyAutocomplete: (scope) ->
-      $(scope).find(".autocomplete").each (i) ->
-        sourceURL = $(this).data("url")
-        dynamicTerm = $(this).data("dynamic-term")
-        dynamicID = $(this).data("dynamic-id")
-        $(this).autocomplete(
-          source: ( (request, response) ->
-            options = { term: request.term.split().pop().replace(/^\s+/,"") }
-            if dynamicTerm and dynamicID
-              dElement = "#" + dynamicID
-              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
-            $.getJSON( sourceURL, options, response ) ),
-          minLength: 2 )
+#    applyAutocomplete: (scope) ->
+#      $(scope).find(".autocomplete").each (i) ->
+#        sourceURL = $(this).data("url")
+#        dynamicTerm = $(this).data("dynamic-term")
+#        dynamicID = $(this).data("dynamic-id")
+#        labeled = $(this).data("labeled")
+#        $(this).autocomplete(
+#          source: ( (request, response) ->
+#            options = { term: request.term.split().pop().replace(/^\s+/,"") }
+#            if dynamicTerm and dynamicID
+#              dElement = "#" + dynamicID
+#              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
+#            $.getJSON( sourceURL, options, response ) ),
+#          minLength: 2,
+#          select: ( ( event, ui ) ->
+#            if labeled
+#              $(this).val( ui.item.label )
+#              $(this).next().val( ui.item.value )
+#            else
+#              $(this).val( ui.item.value ) ) )
     applyBehaviors: (scope) ->
       console.log( scope )
       $(scope).find("input.ui-date-picker").each (i) ->
@@ -64,7 +71,7 @@ $ ->
           timeFormat: "hh:mm:'00' tt"
       $(scope).find(".best_in_place").best_in_place()
       $(scope).find("input.colorpicker").colorpicker()
-      $.cornellUI.applyAutocomplete( $(scope) )
+#      $.cornellUI.applyAutocomplete( $(scope) )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )
       $.cornellUI.setupOrderedList( $(scope).find("fieldset[data-ordered-by]") )
   $.cornellUI.applyBehaviors( $("body") )
