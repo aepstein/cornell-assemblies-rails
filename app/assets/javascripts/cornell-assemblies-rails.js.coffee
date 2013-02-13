@@ -33,26 +33,28 @@ $ ->
         $.cornellUI.updateParent( item ) ) )
       $(list).unbind('cocoon:after-remove').bind( 'cocoon:after-remove', ( ( event, item ) ->
         $.cornellUI.updateParent( item ) ) )
-#    applyAutocomplete: (scope) ->
-#      $(scope).find(".autocomplete").each (i) ->
-#        sourceURL = $(this).data("url")
-#        dynamicTerm = $(this).data("dynamic-term")
-#        dynamicID = $(this).data("dynamic-id")
-#        labeled = $(this).data("labeled")
-#        $(this).autocomplete(
-#          source: ( (request, response) ->
-#            options = { term: request.term.split().pop().replace(/^\s+/,"") }
-#            if dynamicTerm and dynamicID
-#              dElement = "#" + dynamicID
-#              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
-#            $.getJSON( sourceURL, options, response ) ),
-#          minLength: 2,
-#          select: ( ( event, ui ) ->
-#            if labeled
-#              $(this).val( ui.item.label )
-#              $(this).next().val( ui.item.value )
-#            else
-#              $(this).val( ui.item.value ) ) )
+    applyAutocomplete: (scope) ->
+      $(scope).find("input.autocomplete").each (i) ->
+        sourceURL = $(this).data("url")
+        dynamicTerm = $(this).data("dynamic-term")
+        dynamicID = $(this).data("dynamic-id")
+        field = $(this)
+        $(this).autocomplete(
+          source: ( (request, response) ->
+            options = { term: request.term.split().pop().replace(/^\s+/,"") }
+            if dynamicTerm and dynamicID
+              dElement = "#" + dynamicID
+              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
+            $.getJSON( sourceURL, options, response ) ),
+          minLength: 2,
+          select: ( ( event, ui ) ->
+            target = field.siblings("input.autocomplete-target")
+            if target
+              $(target).val( ui.item.value )
+              $(field).val( ui.item.label )
+            else
+              $(field).val( ui.item.value )
+            false ) )
     applyBehaviors: (scope) ->
       console.log( scope )
       $(scope).find("input.ui-date-picker").each (i) ->
@@ -71,7 +73,7 @@ $ ->
           timeFormat: "hh:mm:'00' tt"
       $(scope).find(".best_in_place").best_in_place()
       $(scope).find("input.colorpicker").colorpicker()
-#      $.cornellUI.applyAutocomplete( $(scope) )
+      $.cornellUI.applyAutocomplete( $(scope) )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )
       $.cornellUI.setupOrderedList( $(scope).find("fieldset[data-ordered-by]") )
   $.cornellUI.applyBehaviors( $("body") )
