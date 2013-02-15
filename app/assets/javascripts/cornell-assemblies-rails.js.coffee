@@ -6,6 +6,7 @@
 #= require jquery-ui-timepicker-addon
 #= require bootstrap
 #= require cocoon
+#= require fullcalendar
 #= require bootstrap-colorpicker
 
 $ ->
