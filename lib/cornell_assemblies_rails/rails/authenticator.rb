@@ -16,6 +16,10 @@ module CornellAssembliesRails
         protected
 
         def sso_net_id
+          if ::Rails.env == 'test'
+            session[:net_id] = params[:sso_net_id] if params[:sso_net_id]
+            return session[:net_id] if session[:net_id]
+          end
           net_id = request.env['REMOTE_USER'] || request.env['HTTP_REMOTE_USER']
           net_id.blank? ? false : net_id
         end
@@ -37,7 +41,7 @@ module CornellAssembliesRails
             end
             @current_user.refresh if @current_user.respond_to? :refresh
             return @current_user unless @current_user.blank?
-            initialize_user( sso_net_id )
+            initialize_user sso_net_id
             if @current_user = User.find_by_net_id( sso_net_id )
               reset_session
               session[:user_id] = @current_user.id
@@ -71,7 +75,7 @@ module CornellAssembliesRails
         end
 
         def initialize_user( net_id )
-          User.find_or_create_by_net_id( net_id )
+          User.find_or_create_by_net_id net_id
         end
 
         # Override this method in your application to refresh the current user
