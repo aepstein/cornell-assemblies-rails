@@ -27,6 +27,7 @@ module CornellAssembliesRails
           ::ActionView::Base.send :include, MarkdownHelpers
           ::ActionView::Base.send :include, FlashHelpers
           ::ActionView::Base.send :include, CocoonHelpers
+          ::ActionView::Base.send :include, NestedErrorHelpers
         end
         ::SimpleForm::FormBuilder.send :include, WrappedButton
       end

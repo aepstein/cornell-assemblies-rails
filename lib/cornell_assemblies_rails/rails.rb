@@ -13,6 +13,7 @@ module CornellAssembliesRails
     autoload :MarkdownHelpers, 'cornell_assemblies_rails/rails/markdown_helpers'
     autoload :WrappedButton, 'cornell_assemblies_rails/rails/wrapped_button'
     autoload :HasUserName, 'cornell_assemblies_rails/rails/has_user_name'
+    autoload :NestedErrorHelpers, 'cornell_assemblies_rails/rails/nested_error_helpers'
     require 'cornell_assemblies_rails/rails/engine'
     require 'cornell_assemblies_rails/version'
   end
