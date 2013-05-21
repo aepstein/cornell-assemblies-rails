@@ -50,7 +50,7 @@ module CornellAssembliesRails
                 #{unlesses}
                 message = #{self}Mailer.#{event}_notice( self ).deliver
                 notice = Notice.create( message: message, event: "#{event}", notifiable: self )
-                logger.info "Sent #{event} notice (##{notice.id}) for #{self}#\#{id} to: " +
+                logger.info "Sent #{event} notice (\#{notice.id}) for #{self}#\#{id} to: " +
                   "\#{message.to}, cc: \#{message.cc}, bcc: \#{message.bcc}."
               end
             RUBY
