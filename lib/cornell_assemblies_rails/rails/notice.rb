@@ -20,7 +20,7 @@ module CornellAssembliesRails
       end
       
       def directory_for_message
-        "#{::Rails.root}/db/uploads/notices/#{partition_model_id}"
+        "#{::Rails.root}/db/uploads/notices/#{partitioned_model_id}"
       end
 
       def path_for_message
