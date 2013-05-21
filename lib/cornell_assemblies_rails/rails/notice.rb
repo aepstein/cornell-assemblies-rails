@@ -9,6 +9,7 @@ module CornellAssembliesRails
       attr_accessor :message
 
       after_create :archive_message
+      after_destroy :expunge_message
       
       scope :for_type, lambda { |type| where { |n| n.notifiable_type.
         eq( type ) }.select { notifiable_id } }
