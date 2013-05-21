@@ -38,7 +38,7 @@ module CornellAssembliesRails
 
       def expunge_message
         File.delete( path_for_message ) if message_path
-        update_column :archived_at, nil
+        update_column :archived_at, nil unless destroyed?
       end
 
       def message_path
