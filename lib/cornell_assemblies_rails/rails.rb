@@ -14,6 +14,8 @@ module CornellAssembliesRails
     autoload :WrappedButton, 'cornell_assemblies_rails/rails/wrapped_button'
     autoload :HasUserName, 'cornell_assemblies_rails/rails/has_user_name'
     autoload :NestedErrorHelpers, 'cornell_assemblies_rails/rails/nested_error_helpers'
+    autoload :Notice, 'cornell_assemblies_rails/rails/notice'
+    require 'squeel'
     require 'cornell_assemblies_rails/rails/engine'
     require 'cornell_assemblies_rails/version'
   end

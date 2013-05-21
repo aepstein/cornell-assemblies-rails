@@ -19,6 +19,17 @@ module CornellAssembliesRails
         # * :unless => symbol or array of symbols of instance methods to call before
         #   sending notice -- will not send if any of these does not return (nil|false)
         def notifiable_events( *events )
+          unless @notifiable_events
+            has_many :notices, as: :notifiable, dependent: :destroy
+            scope :no_notice, lambda { |event|
+              where { |c| c.id.not_in( Notice.for_event(event).
+                for_type( "#{self}" ) ) }
+            }
+            scope :no_notice_since, lambda { |event, point|
+              where { |c| c.id.not_in( Notice.for_event(event).
+                for_type( "#{self}" ).since( point ) ) }
+            }
+          end
           @notifiable_events ||= Array.new
           options = events.extract_options!
           return @notifiable_events if events.empty?
@@ -28,11 +39,9 @@ module CornellAssembliesRails
           unlesses = "return false if #{unlesses}" unless unlesses.empty?
           new_events = events - notifiable_events
           new_events.flatten.each do |event|
-            scope "no_#{event}_notice".to_sym, where( "#{event}_notice_at".to_sym => nil )
-            scope "no_#{event}_notice_since".to_sym, lambda { |time|
-              t = arel_table
-              f = arel_table["#{event}_notice_at".to_sym]
-              where( f.eq( nil ).or( f.lt( time ) ) )
+            scope "no_#{event}_notice".to_sym, lambda { no_notice( event ) }
+            scope "no_#{event}_notice_since".to_sym, lambda { |point|
+              no_notice_since( event, point )
             }
             class_eval <<-RUBY
               def send_#{event}_notice!
@@ -40,9 +49,9 @@ module CornellAssembliesRails
                 #{ifs}
                 #{unlesses}
                 message = #{self}Mailer.#{event}_notice( self ).deliver
-                logger.info "Sent #{event} notice for #{self}#\#{id} to: " +
+                notice = Notice.create( message: message, event: "#{event}", notifiable: self )
+                logger.info "Sent #{event} notice (##{notice.id}) for #{self}#\#{id} to: " +
                   "\#{message.to}, cc: \#{message.cc}, bcc: \#{message.bcc}."
-                self.update_column :#{event}_notice_at, Time.zone.now
               end
             RUBY
           end
