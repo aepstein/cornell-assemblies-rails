@@ -22,11 +22,11 @@ module CornellAssembliesRails
           unless @notifiable_events
             has_many :notices, as: :notifiable, dependent: :destroy
             scope :no_notice, lambda { |event|
-              where { |c| c.id.not_in( Notice.for_event(event).
+              where { |c| c.id.not_in( Notice.for_event("#{event}").
                 for_type( "#{self}" ) ) }
             }
             scope :no_notice_since, lambda { |event, point|
-              where { |c| c.id.not_in( Notice.for_event(event).
+              where { |c| c.id.not_in( Notice.for_event("#{event}").
                 for_type( "#{self}" ).since( point ) ) }
             }
           end

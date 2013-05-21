@@ -16,7 +16,7 @@ module CornellAssembliesRails
       scope :since, lambda { |point| where { |n| n.created_at.gte( point ) } }
 
       def partitioned_model_id
-        ("%09d" % model.id).scan(/\d{3}/).join("/")
+        ("%09d" % id).scan(/\d{3}/).join("/")
       end
       
       def directory_for_message
