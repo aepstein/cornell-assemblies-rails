@@ -5,7 +5,6 @@ module CornellAssembliesRails
       belongs_to :notifiable, polymorphic: true
       validates :notifiable, presence: true
       validates :event, presence: true
-      validates :created_at, presence: true
       attr_accessor :message
 
       after_create :archive_message
