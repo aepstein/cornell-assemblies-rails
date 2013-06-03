@@ -4,7 +4,8 @@ module CornellAssembliesRails
       module ClassMethods
 
         def is_authenticator
-          helper_method :current_user_session, :current_user, :sso_net_id
+          helper_method :current_user_session, :current_user, :sso_net_id,
+            :force_sso
           before_filter :check_authorization
           send :include, InstanceMethods
         end
@@ -46,11 +47,19 @@ module CornellAssembliesRails
           @current_user.refresh if @current_user.respond_to? :refresh
           @current_user
         end
-
+        
+        def force_sso
+          false
+        end
+        
         def require_user
           unless current_user
             store_location
-            redirect_to login_url, alert: 'You must log in to access this page.'
+            if force_sso
+              redirect_to sso_login_url( provider: force_sso ), alert: 'You must log in to access this page.'
+            else
+              redirect_to login_url, alert: 'You must log in to access this page.'
+            end
           end
         end
 
