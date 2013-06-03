@@ -54,7 +54,7 @@ module CornellAssembliesRails
         
         def force_sso
           if ::Rails.env == 'test'
-            session[:force_sso] = params[:force_sso] if params[:sso_net_id]
+            session[:force_sso] = params[:force_sso] if params[:force_sso]
             return session[:force_sso] if session[:force_sso]
           end
           false
