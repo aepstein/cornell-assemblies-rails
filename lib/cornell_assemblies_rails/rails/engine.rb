@@ -6,6 +6,7 @@ module CornellAssembliesRails
       config.autoload_paths << File.expand_path("../../../app/inputs", __FILE__)
       initializer "cornell_assemblies_rails.authenticator" do
         Date::DATE_FORMATS[:us_short] = '%m/%d/%Y'
+        Time::DATE_FORMATS[:datetime_picker] = '%Y-%m-%d %I:%M %p'
         Time::DATE_FORMATS[:us_short] = '%m/%d/%Y %I:%M:%S %P'
         Time::DATE_FORMATS[:us_ordinal] = lambda { |time|
           time.strftime "%B #{ActiveSupport::Inflector.ordinalize time.day}, %Y %I:%M %P" }

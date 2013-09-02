@@ -3,8 +3,8 @@
 #= require jquery.ui.all
 #= require jquery.purr
 #= require best_in_place
-#= require jquery-ui-timepicker-addon
 #= require bootstrap
+#= require bootstrap-datetimepicker
 #= require cocoon
 #= require fullcalendar
 #= require bootstrap-colorpicker
@@ -58,20 +58,15 @@ $ ->
             false ) )
     applyBehaviors: (scope) ->
       console.log( scope )
-      $(scope).find("input.ui-date-picker").each (i) ->
-        $(this).datepicker
-          altFormat: "yy-mm-dd"
-          dateFormat: "mm/dd/yy"
-          altField: $(this).next()
-      $(scope).find("input.ui-datetime-picker").each (i) ->
+      $(scope).find("[data-behavior~='date-picker']").each (i) ->
         $(this).datetimepicker
-          altFormat: "yy-mm-dd"
-          dateFormat: "mm/dd/yy"
-          altField: $(this).next()
-          altFieldTimeOnly: false
-          altTimeFormat: "HH:mm:'00'"
-          dateFormat: 'mm/dd/yy'
-          timeFormat: "hh:mm:'00' tt"
+          format: "yyyy-MM-dd"
+          pickTime: false
+      $(scope).find("[data-behavior~='datetime-picker']").each (i) ->
+        $(this).datetimepicker
+          format: "yyyy-MM-dd HH:mm PP"
+          pick12HourFormat: true
+          pickSeconds: false
       $(scope).find(".best_in_place").best_in_place()
       $(scope).find("input.colorpicker").colorpicker()
       $.cornellUI.applyAutocomplete( $(scope) )

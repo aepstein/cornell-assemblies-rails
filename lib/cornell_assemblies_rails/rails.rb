@@ -15,6 +15,7 @@ module CornellAssembliesRails
     autoload :HasUserName, 'cornell_assemblies_rails/rails/has_user_name'
     autoload :NestedErrorHelpers, 'cornell_assemblies_rails/rails/nested_error_helpers'
     autoload :Notice, 'cornell_assemblies_rails/rails/notice'
+    autoload :DatetimepickerInputMethods, 'cornell_assemblies_rails/rails/datetimepicker_input_methods'
     require 'squeel'
     require 'cornell_assemblies_rails/rails/engine'
     require 'cornell_assemblies_rails/version'

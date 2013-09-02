@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cornell_netid", "~> 1.1"
   s.add_dependency "decent_exposure", "~> 2.0"
   s.add_dependency "fullcalendar-rails", "~> 1.5"
+  s.add_dependency "bootstrap-datetimepicker-rails", "~> 0.0.11"
 
   s.add_development_dependency "sqlite3"
 end
