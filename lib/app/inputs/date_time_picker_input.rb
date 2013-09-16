@@ -1,10 +1,6 @@
 class DateTimePickerInput < SimpleForm::Inputs::StringInput
-  include CornellAssembliesRails::Rails::DatetimepickerInputMethods
   def input
-    # TODO now button behavior
-    date_input = @builder.text_field(attribute_name, input_html_options)
-    template.content_tag(:div, date_input + input_calendar_button,
-      data: { behavior: "datetime-picker" }, class: "input-append datetime")
+    @builder.datetime_picker_field(attribute_name, input_html_options)
   end
   
   def input_html_options

@@ -14,6 +14,7 @@ module CornellAssembliesRails
         Time::DATE_FORMATS[:us_time] = "%l:%M%P"
         ::ActionController::Base.send :include, Authenticator
         ::ActionController::Base.send :include, Breadcrumbs
+        ::ActionController::Base.send :helper, DatetimePickerHelpers
         ::ActiveRecord::Base.send :include, Notifiable
         ::ActiveRecord::Base.send :include, Authenticable
         ::ActiveRecord::Base.send :include, Searchable
@@ -30,6 +31,7 @@ module CornellAssembliesRails
           ::ActionView::Base.send :include, CocoonHelpers
           ::ActionView::Base.send :include, NestedErrorHelpers
         end
+        ::SimpleForm::FormBuilder.send :include, DatetimePickerBuilderMethods
         ::SimpleForm::FormBuilder.send :include, WrappedButton
       end
     end
