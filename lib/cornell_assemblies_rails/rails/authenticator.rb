@@ -38,13 +38,13 @@ module CornellAssembliesRails
           if sso_net_id
             if @current_user && @current_user.net_id != sso_net_id
               @current_user = nil
-              reset_session
+              reset_session_with_redirect
             end
             @current_user.refresh if @current_user.respond_to? :refresh
             return @current_user unless @current_user.blank?
             initialize_user sso_net_id
             if @current_user = User.find_by_net_id( sso_net_id )
-              reset_session
+              reset_session_with_redirect
               session[:user_id] = @current_user.id
             end
           end
@@ -78,13 +78,20 @@ module CornellAssembliesRails
         end
 
         def store_location
-          return if self.class.to_s == UserSessionsController
-          session[:return_to] = request.fullpath
+          return if self.class.to_s == 'UserSessionsController'
+          session[:return_to] = url_for( params )
+        end
+        
+        def reset_session_with_redirect
+          return_to = session[:return_to]
+          reset_session
+          session[:return_to] = return_to
         end
 
-        def redirect_back_or_default(default)
-          redirect_to(session[:return_to] || default)
+        def redirect_back_or_default(default, options={})
+          return_to = session[:return_to]
           session[:return_to] = nil
+          redirect_to( ( return_to || default ), options )
         end
 
         def initialize_user( net_id )
