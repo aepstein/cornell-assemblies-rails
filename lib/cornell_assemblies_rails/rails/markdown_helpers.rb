@@ -5,7 +5,7 @@ module CornellAssembliesRails
       def markdown( content )
         out = Markdown.new(content, tables: true).to_html
         { '\+' => 'ins', '\-' => 'del' }.each do |mark, tag|
-          out.gsub! /\[#{mark}(.+)#{mark}\]/, "<#{tag}>$1</#{tag}>"
+          out.gsub! /\[#{mark}(.+)#{mark}\]/, "<#{tag}>\\1</#{tag}>"
         end
         sanitize out
       end
