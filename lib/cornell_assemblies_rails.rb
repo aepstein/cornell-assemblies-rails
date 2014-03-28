@@ -1,6 +1,6 @@
 require 'jquery-rails'
 require 'jquery-ui-rails'
-require 'best_in_place'
+#require 'best_in_place'
 require 'simple_form'
 require 'bluecloth'
 require 'cocoon'
