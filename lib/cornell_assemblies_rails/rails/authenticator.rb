@@ -95,7 +95,7 @@ module CornellAssembliesRails
         end
 
         def initialize_user( net_id )
-          User.find_or_create_by_net_id net_id
+          User.find_or_create_by( net_id: net_id )
         end
 
         # Override this method in your application to refresh the current user
