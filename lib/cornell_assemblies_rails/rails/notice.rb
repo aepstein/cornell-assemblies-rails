@@ -1,7 +1,6 @@
 module CornellAssembliesRails
   module Rails
     class Notice < ActiveRecord::Base
-      attr_accessible :notifiable, :event, :message
       belongs_to :notifiable, polymorphic: true
       validates :notifiable, presence: true
       validates :event, presence: true
