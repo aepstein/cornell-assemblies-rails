@@ -1,9 +1,10 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.ui.all
-#= require jquery.purr
-#= require best_in_place
-#= require bootstrap
+# require jquery.purr
+# require best_in_place
+#= require bootstrap-sprockets
+#= require moment
 #= require bootstrap-datetimepicker
 #= require cocoon
 #= require fullcalendar
@@ -17,7 +18,7 @@ $ ->
     updateList: (list) ->
       field = $(list).data('ordered-by')
       fieldSelector = "[name$='[" + field + "]']"
-      $(list).find("> .nested-fields > .control-group " + fieldSelector).each (index, element) ->
+      $(list).find("> .nested-fields > .form-group " + fieldSelector).each (index, element) ->
         $(element).val( index + 1 )
     setupList: (list) ->
       $(list).unbind('cocoon:after-insert').bind( 'cocoon:after-insert', ( ( event, item ) ->
@@ -45,7 +46,8 @@ $ ->
             options = { term: request.term.split().pop().replace(/^\s+/,"") }
             if dynamicTerm and dynamicID
               dElement = "#" + dynamicID
-              options[dynamicTerm] = ( $("select" + dElement + " option:selected").attr("value") or $(dElement).attr("value") )
+              options[dynamicTerm] = ( $("select" + dElement + 
+                " option:selected").attr("value") or $(dElement).attr("value") )
             $.getJSON( sourceURL, options, response ) ),
           minLength: 2,
           select: ( ( event, ui ) ->
@@ -57,17 +59,16 @@ $ ->
               $(field).val( ui.item.value )
             false ) )
     applyBehaviors: (scope) ->
-      console.log( scope )
       $(scope).find("[data-behavior~='date-picker']").each (i) ->
         $(this).datetimepicker
-          format: "yyyy-MM-dd"
+          format: "YYYY-MM-DD"
           pickTime: false
       $(scope).find("[data-behavior~='datetime-picker']").each (i) ->
         $(this).datetimepicker
-          format: "yyyy-MM-dd HH:mm PP"
+          format: "YYYY-MM-DD hh:mm AA"
           pick12HourFormat: true
           pickSeconds: false
-      $(scope).find(".best_in_place").best_in_place()
+#      $(scope).find(".best_in_place").best_in_place()
       $(scope).find("input.colorpicker").colorpicker()
       $.cornellUI.applyAutocomplete( $(scope) )
       $.cornellUI.setupList( $(scope).find("fieldset.cocoon") )

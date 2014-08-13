@@ -1,12 +1,11 @@
-/*
- *= require jquery.ui.all
- *= require fullcalendar
- */
-
+@import "jquery.ui.all.css";
+@import "fullcalendar.css";
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-responsive";
-@import "bootstrap-datetimepicker";
-@import "bootstrap-colorpicker";
+@import "bootstrap/theme";
+/*@import "bootstrap-responsive";*/
+@import "bootstrap-datetimepicker.css";
+@import "bootstrap-colorpicker.css";
 
 /* basic look and feel (inspired by nifty_generator) */
 html, body {
