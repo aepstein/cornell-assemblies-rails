@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cornell_ldap", "~> 1.4.3"
   s.add_dependency "bluecloth", "~> 2.0"
 #  s.add_dependency "best_in_place", "~> 2.1"
-  s.add_dependency "simple_form", "~> 3.0"
+  s.add_dependency "simple_form", "~> 3.1.0.rc2"
   s.add_dependency "bootstrap-sass", "~> 3.1"
   s.add_dependency "tabulous", "~> 2.0"
   s.add_dependency "kaminari", "~> 0.14"
@@ -33,7 +33,8 @@ Gem::Specification.new do |s|
   s.add_dependency "cornell_netid", "~> 1.1"
   s.add_dependency "decent_exposure", "~> 2.3"
   s.add_dependency "fullcalendar-rails", "~> 1.5"
-  s.add_dependency "bootstrap-datetimepicker-rails", "~> 0.0.11"
+  s.add_dependency "bootstrap3-datetimepicker-rails", "~> 3.0"
+#  s.add_dependency "bootstrap-datetimepicker-rails", "~> 0.0.11"
 
   s.add_development_dependency "sqlite3"
 end
