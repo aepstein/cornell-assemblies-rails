@@ -65,7 +65,7 @@ $ ->
           pickTime: false
       $(scope).find("[data-behavior~='datetime-picker']").each (i) ->
         $(this).datetimepicker
-          format: "YYYY-MM-DD hh:mm AA"
+          format: "YYYY-MM-DD hh:mm A"
           pick12HourFormat: true
           pickSeconds: false
 #      $(scope).find(".best_in_place").best_in_place()
