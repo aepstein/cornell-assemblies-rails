@@ -1,11 +1,13 @@
-@import "jquery.ui.all.css";
-@import "fullcalendar.css";
+/*
+ * The following are CSS files and must be imported using css style syntax
+ *= require jquery.ui.all
+ *= require fullcalendar
+ *= require bootstrap-datetimepicker
+ *= require bootstrap-colorpicker
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
-/*@import "bootstrap-responsive";*/
-@import "bootstrap-datetimepicker.css";
-@import "bootstrap-colorpicker.css";
 
 /* basic look and feel (inspired by nifty_generator) */
 html, body {
